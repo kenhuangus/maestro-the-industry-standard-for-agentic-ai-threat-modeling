@@ -107,12 +107,6 @@
       .btn.primary{background:var(--orange);border-color:var(--orange);color:#fff;box-shadow:0 8px 24px rgba(249,106,27,.35)}
       .btn.primary:hover{background:var(--orange-d)}
       .cover-foot{margin-top:26px;font-size:12.5px;color:#66738a}
-      .src-cols{display:grid;grid-template-columns:1fr 1fr;gap:8px 26px}
-      @media (max-width:900px){ .src-cols{grid-template-columns:1fr} }
-      .src-cols a,.src-cols span.srcline{display:block;padding:7px 0;border-bottom:1px dashed #eee5cf;color:var(--body);text-decoration:none;font-size:14.5px;line-height:1.4}
-      .src-cols a:hover{color:var(--orange-d)}
-      .src-cols a b,.src-cols span.srcline b{color:var(--ink)}
-      .src-cols a .arr{color:var(--orange);font-weight:900}
       .intro-cols{align-items:start}
       .intro-card{border-left-color:var(--blue)}
       .intro-top{display:flex;align-items:center;gap:16px;margin-bottom:12px}
@@ -208,7 +202,6 @@
           <button id="langZh" type="button">中文</button>
         </div>
         <button class="tbtn fs" id="fsBtn" type="button" data-k="fs">Full Screen</button>
-        <button class="tbtn cta" id="srcBtn" type="button" data-k="srcbtn">Sources ↗</button>
       </div>
     </header>
 
@@ -223,7 +216,6 @@
         <div class="presenter"><span data-k="s1.by">Presented by</span> <b>Ken Huang, CISSP</b><br /><span data-k="s1.role">Adjunct Professor, USF · CSA AI Safety Co-Chair · CEO, DistributedApps.ai</span></div>
         <div class="cover-btns">
           <button class="btn primary" id="startBtn" type="button" data-k="s1.start">Start Presentation →</button>
-          <button class="btn" id="coverSrcBtn" type="button" data-k="s1.src">Sources &amp; Open Questions</button>
         </div>
         <div class="cover-foot" data-k="s1.foot">MAESTRO v2.0 releases 12 January 2027 — covered in the final three slides.</div>
       </section>
@@ -669,44 +661,11 @@
         </div>
       </section>
 
-      <!-- 14 · SOURCES & OPEN QUESTIONS -->
-      <section class="slide light" data-title-en="Sources &amp; Open Questions" data-title-zh="来源与未决问题">
-        <div class="kicker" data-k="s14.kick">Sources</div>
-        <h1 class="head" data-k="s14.head">Sources &amp; Open Questions</h1>
-        <p class="sub" data-k="s14.sub">Ken Huang's two MAESTRO documents, plus every adoption source used in this deck.</p>
-        <div class="cols">
-          <div class="panel blue">
-            <h3><span class="badge blue" data-k="s14.badge">Sources</span> <span data-k="s14.ph">In order of use</span></h3>
-            <div class="src-cols">
-              <span class="srcline"><b>Ken Huang</b> — “MAESTRO Is Now the De Facto Industry Standard for Agentic AI Threat Modeling”</span>
-              <span class="srcline"><b>Ken Huang</b> — MAESTRO v2.0, Final Draft 4/7, CSA / CSAI Foundation</span>
-              <span class="srcline"><b>CSA</b> — MAESTRO framework (v1)</span>
-              <a href="https://maestro-sentinel.com/" target="_blank" rel="noopener"><b>MAESTRO Sentinel</b> — tool site <span class="arr">↗</span></a>
-              <span class="srcline"><b>SANS</b> — SEC545: GenAI and LLM Application Security</span>
-              <span class="srcline"><b>IriusRisk</b> — MAESTRO implementation</span>
-              <span class="srcline"><b>ThreatModeler</b> — CSA MAESTRO threat library</span>
-              <span class="srcline"><b>Snyk Labs</b> — OWASP ASI to MAESTRO mapping</span>
-              <span class="srcline"><b>AWS</b> — Well-Architected Digital Sovereignty Lens</span>
-              <span class="srcline"><b>Microsoft</b> — SQL security across MAESTRO</span>
-              <span class="srcline"><b>Cisco Live 2026</b> — BRKXAR-1009</span>
-              <span class="srcline"><b>W3C</b> — Agentic AI Vocabulary draft</span>
-              <span class="srcline"><b>OWASP</b> — MAS Guide v1.0</span>
-              <span class="srcline"><b>OpenClaw</b> — MAESTRO threat model</span>
-              <span class="srcline"><b>MAESTRO in Practice</b> — 12-application compilation</span>
-              <span class="srcline"><b>SentinelleIA</b> — mapping and benchmark series</span>
-              <span class="srcline"><b>AP2 paper</b> — arXiv 2608.23858</span>
-            </div>
-          </div>
-          <div class="panel red">
-            <h3><span class="badge red" data-k="s14.badge2">Open Questions</span> <span data-k="s14.ph2">Not verified — stated plainly</span></h3>
-            <ul class="pts warn">
-              <li data-k="s14.q1"><b>The adoption count is a floor, not a total:</b> the survey lists examples and states actual adoption is higher; no full count exists.</li>
-              <li data-k="s14.q2"><b>The Sentinel user figure</b> comes from the source document and was not independently verified for this deck.</li>
-              <li data-k="s14.q3"><b>v2.0 is cited here from Final Draft 4/7</b> — the published release may rename layers or threat codes.</li>
-            </ul>
-            <div class="note-box" data-k="s14.note"><b>Invite challenge:</b> if a number on any slide cannot be traced to a source above, treat the slide — not the source — as wrong, and ask.</div>
-          </div>
-        </div>
+      <!-- 14 · Q&A -->
+      <section class="slide dark" data-title-en="Q&amp;A" data-title-zh="问答环节">
+        <div class="kicker" data-k="s14.kick">Thank You</div>
+        <h1 class="cover-title"><span class="grad" data-k="s14.head">Q&amp;A</span></h1>
+        <p class="cover-sub" data-k="s14.sub">Questions &amp; Answers</p>
       </section>
 
     </main>
@@ -759,8 +718,6 @@
         prevBtn.addEventListener('click', function(){ go(cur - 1); });
         nextBtn.addEventListener('click', function(){ go(cur + 1); });
         document.getElementById('startBtn').addEventListener('click', function(){ go(1); });
-        document.getElementById('srcBtn').addEventListener('click', function(){ go(total - 1); });
-        document.getElementById('coverSrcBtn').addEventListener('click', function(){ go(total - 1); });
         document.getElementById('fsBtn').addEventListener('click', function(){
           try {
             if (document.fullscreenElement) { document.exitFullscreen(); }
@@ -786,13 +743,13 @@
         var enCache = {};
         document.querySelectorAll('[data-k]').forEach(function(el){ enCache[el.getAttribute('data-k')] = el.innerHTML; });
         var ZH = {
-          "brand":"MAESTRO · 威胁建模","fs":"全屏","srcbtn":"来源 ↗","prev":"‹ 上一页","next":"下一页 ›",
+          "brand":"MAESTRO · 威胁建模","fs":"全屏","prev":"‹ 上一页","next":"下一页 ›",
           "s1.pill":"CSA 虚拟峰会 · 特邀主题演讲 · 2027 年 1 月 27 日",
           "s1.t1":"MAESTRO","s1.t2":"行业标准",
           "s1.p1":"第一部分","s1.p1w":"广泛采用","s1.p2":"第二部分","s1.p2w":"实践证明","s1.p3":"第三部分","s1.p3w":"MAESTRO v2——最后三页",
           "s1.sub":"所有人都采用了它：<b>SANS 讲授它、工具内置它、AWS、Microsoft 与 Cisco 把它写进指南、标准草案引用它</b>——这就是为什么 MAESTRO 是智能体 AI 威胁建模的标准。",
           "s1.by":"主讲人","s1.role":"旧金山大学兼职教授 · CSA AI 安全联合主席 · DistributedApps.ai CEO",
-          "s1.start":"开始演示 →","s1.src":"来源与未决问题",
+          "s1.start":"开始演示 →",
           "s1.foot":"MAESTRO v2.0 于 2027 年 1 月 12 日发布——在最后三页讲解。",
           "s2.kick":"讲师介绍","s2.head":"关于 Ken Huang",
           "s2.sub":"讲师与 AI 安全研究员——《Harness Engineering》与 MAESTRO 的作者。",
@@ -924,14 +881,7 @@
           "s13.d5":"L7 / L10 · 人工批准时没有读被引用的部分",
           "s13.d6":"L6 · 发布到拉取请求上",
           "s13.d7":"后果：不可逆的披露",
-          "s14.kick":"来源","s14.head":"来源与未决问题",
-          "s14.sub":"Ken Huang 的两份 MAESTRO 文件，以及本演示用到的全部采用来源。",
-          "s14.badge":"来源","s14.ph":"按使用顺序",
-          "s14.badge2":"未决问题","s14.ph2":"未验证——如实说明",
-          "s14.q1":"<b>采用计数是下限，不是总数：</b>调查列出了案例，并指出实际采用更高；不存在完整总数。",
-          "s14.q2":"<b>Sentinel 的用户数字</b>来自来源文件，本演示未对其做独立验证。",
-          "s14.q3":"<b>本演示引用的 v2.0 来自最终草案 4/7</b>——正式发布版可能更名层级或威胁代码。",
-          "s14.note":"<b>欢迎质疑：</b>如果任何一页上的数字无法追溯到上述来源，应视为该页有误——请提出质疑。"
+          "s14.kick":"谢谢","s14.head":"Q&A","s14.sub":"问答环节"
         };
 
         function setLang(l){
