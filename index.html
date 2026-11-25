@@ -113,6 +113,22 @@
       .src-cols a:hover{color:var(--orange-d)}
       .src-cols a b,.src-cols span.srcline b{color:var(--ink)}
       .src-cols a .arr{color:var(--orange);font-weight:900}
+      .intro-cols{align-items:start}
+      .intro-card{border-left-color:var(--blue)}
+      .intro-top{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+      .avatar{width:76px;height:76px;border-radius:50%;background:linear-gradient(135deg,var(--amber),var(--orange));color:#fff;display:grid;place-items:center;font-weight:900;font-size:27px;letter-spacing:.02em;flex:0 0 auto;box-shadow:0 6px 18px rgba(249,106,27,.3)}
+      .intro-name{font-size:clamp(20px,2vw,26px);font-weight:800;color:var(--ink);line-height:1.15}
+      .intro-role{font-size:15px;color:var(--muted);font-weight:600;margin-top:3px}
+      .role-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+      .rpill{background:#141b27;color:#e8edf4;font-size:13px;font-weight:700;padding:8px 13px;border-radius:999px}
+      .books-panel{border-left-color:var(--amber)}
+      .book-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+      @media (max-width:560px){ .book-grid{grid-template-columns:1fr} }
+      .book{border:1.6px solid var(--line);border-radius:9px;padding:10px 12px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;line-height:1.35;display:block;background:#fffdf6}
+      .book small{display:block;color:var(--muted);font-weight:600;font-size:11.5px;margin-top:3px}
+      .book:hover{border-color:var(--amber)}
+      .amazon-link{display:inline-block;margin-top:14px;font-weight:800;color:var(--orange-d);text-decoration:none;font-size:14.5px}
+      .pub-row{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);color:var(--muted);font-weight:700;font-size:13px;letter-spacing:.02em;line-height:1.5}
       .navbar{flex:0 0 auto;background:var(--bar);display:flex;align-items:center;justify-content:center;gap:16px;padding:9px 14px calc(9px + env(safe-area-inset-bottom));position:relative;z-index:20}
       .navbtn{border:1px solid #2a3547;background:#141b27;color:#e8edf4;font-weight:700;font-size:14px;padding:9px 20px;border-radius:999px;min-height:2.5rem}
       .navbtn.next{background:var(--orange);border-color:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(249,106,27,.35)}
@@ -160,7 +176,7 @@
         <h1 class="cover-title"><span data-k="s1.t1">MAESTRO</span><br /><span class="grad" data-k="s1.t2">The Industry Standard</span></h1>
         <div class="cover-parts"><b data-k="s1.p1">Part 1</b> <span data-k="s1.p1w">Wide Adoption</span> · <b data-k="s1.p2">Part 2</b> <span data-k="s1.p2w">Proven in Practice</span> · <b data-k="s1.p3">Part 3</b> <span data-k="s1.p3w">MAESTRO v2 — The Last 3 Slides</span></div>
         <p class="cover-sub" data-k="s1.sub">Everyone adopted it: <b>taught by SANS, shipped in tools, written into AWS, Microsoft and Cisco guidance, cited in standards drafts</b> — that is why MAESTRO is the standard for threat modeling agentic AI.</p>
-        <div class="presenter"><span data-k="s1.by">Presented by</span> <b>Ken Huang</b><br /><span data-k="s1.role">Adjunct Professor, University of San Francisco · Co-Chair, AI Safety Working Groups, Cloud Security Alliance</span></div>
+        <div class="presenter"><span data-k="s1.by">Presented by</span> <b>Ken Huang, CISSP</b><br /><span data-k="s1.role">Adjunct Professor, USF · CSA AI Safety Co-Chair · CEO, DistributedApps.ai</span></div>
         <div class="cover-btns">
           <button class="btn primary" id="startBtn" type="button" data-k="s1.start">Start Presentation →</button>
           <button class="btn" id="coverSrcBtn" type="button" data-k="s1.src">Sources &amp; Open Questions</button>
@@ -168,25 +184,49 @@
         <div class="cover-foot" data-k="s1.foot">MAESTRO v2.0 releases 12 January 2027 — covered in the final three slides.</div>
       </section>
 
-      <!-- 2 · SPEAKER -->
-      <section class="slide light" data-title-en="The Speaker: Ken Huang" data-title-zh="主讲人：Ken Huang">
-        <div class="kicker" data-k="s2.kick">The Speaker</div>
-        <h1 class="head" data-k="s2.head">Ken Huang</h1>
-        <p class="sub" data-k="s2.sub">Author of MAESTRO and MAESTRO v2.0.</p>
-        <div class="cols">
-          <div class="panel">
-            <h3><span class="badge" data-k="s2.badge">Speaker</span> <span data-k="s2.ph">Roles</span></h3>
-            <ul class="pts">
-              <li data-k="s2.b1"><b>Adjunct Professor</b>, University of San Francisco.</li>
-              <li data-k="s2.b2"><b>Co-Chair, AI Safety Working Groups</b>, Cloud Security Alliance.</li>
-              <li data-k="s2.b3"><b>CEO, Distributed Apps.AI</b>; CSA Research Fellow.</li>
-            </ul>
+      <!-- 2 · SELF-INTRO (template slide 2, used in every deck) -->
+      <section class="slide light" data-title-en="Meet Your Instructor: Ken Huang, CISSP" data-title-zh="讲师介绍：Ken Huang, CISSP">
+        <div class="kicker" data-k="s2.kick">Meet Your Instructor</div>
+        <h1 class="head" data-k="s2.head">Ken Huang, CISSP</h1>
+        <p class="sub" data-k="s2.sub">Instructor and AI Safety Researcher — author of Harness Engineering and MAESTRO.</p>
+        <div class="cols intro-cols">
+          <div>
+            <div class="panel intro-card">
+              <div class="intro-top">
+                <div class="avatar" aria-hidden="true">KH</div>
+                <div>
+                  <div class="intro-name" data-k="s2.name">Ken Huang, CISSP</div>
+                  <div class="intro-role" data-k="s2.role">Instructor · AI Safety Researcher</div>
+                </div>
+              </div>
+              <ul class="pts">
+                <li data-k="s2.b1"><b>Author of Harness Engineering and MAESTRO</b> — MAESTRO is the industry standard for agentic AI threat modeling.</li>
+                <li data-k="s2.b2"><b>Adjunct Professor</b>, University of San Francisco · <b>CSA Fellow and Co-Chair</b>, AI Safety Working Groups, Cloud Security Alliance.</li>
+                <li data-k="s2.b3"><b>OWASP AIVSS Lead</b> · AIUC-1 Consortium · Schmidt Sciences · <b>CEO, DistributedApps.ai</b>.</li>
+              </ul>
+            </div>
+            <div class="role-pills">
+              <span class="rpill" data-k="s2.pill1">Adjunct Professor at USF · AI author</span>
+              <span class="rpill" data-k="s2.pill2">CSA Fellow · OWASP AIVSS Lead</span>
+              <span class="rpill" data-k="s2.pill3">CEO of DistributedApps.ai</span>
+            </div>
           </div>
-          <div class="diagram">
-            <div class="d-title" data-k="s2.dt">MAESTRO — BY KEN HUANG</div>
-            <div class="dbox blue" data-k="s2.d1">MAESTRO v2.0 · Final Draft 4/7 · October 2026<small>CSA / CSAI Foundation</small></div>
-            <div class="dbox teal" data-k="s2.d2">Author<small>Ken Huang</small></div>
-            <div class="dbox orange" data-k="s2.d3">The de facto standard<small>for agentic AI threat modeling</small></div>
+          <div class="panel books-panel">
+            <h3><span class="badge blue" data-k="s2.badge">Books</span> <span data-k="s2.ph">Ten books on AI, security, and Web3</span></h3>
+            <div class="book-grid">
+              <a class="book" href="https://www.amazon.com/author/kenhuang" target="_blank" rel="noopener" data-k="s2.book1">Harness Engineering<small>Packt · WDTA · 2026</small></a>
+              <a class="book" href="https://www.amazon.com/author/kenhuang" target="_blank" rel="noopener" data-k="s2.book2">Agentic AI: Theories and Practices<small>Springer · 2025</small></a>
+              <a class="book" href="https://www.amazon.com/author/kenhuang" target="_blank" rel="noopener" data-k="s2.book3">Securing AI Agents: Foundations, Frameworks, and Real-World Deployment<small>Springer · 2025</small></a>
+              <a class="book" href="https://www.amazon.com/author/kenhuang" target="_blank" rel="noopener" data-k="s2.book4">LLM Design Patterns<small>Packt · 2025</small></a>
+              <a class="book" href="https://www.amazon.com/author/kenhuang" target="_blank" rel="noopener" data-k="s2.book5">Generative AI Security: Theories and Practices<small>Springer · 2024</small></a>
+              <a class="book" href="https://www.amazon.com/author/kenhuang" target="_blank" rel="noopener" data-k="s2.book6">Beyond AI: ChatGPT, Web3, and the Business Landscape of Tomorrow<small>Springer · 2023</small></a>
+              <a class="book" href="https://www.amazon.com/author/kenhuang" target="_blank" rel="noopener" data-k="s2.book7">The Handbook for Chief AI Officers: Leading the AI Revolution in Business<small>DistributedApps.ai · 2024</small></a>
+              <a class="book" href="https://www.amazon.com/author/kenhuang" target="_blank" rel="noopener" data-k="s2.book8">Practical Guide for AI Engineers — Volumes 1 &amp; 2<small>DistributedApps.ai · 2024</small></a>
+              <a class="book" href="https://www.amazon.com/author/kenhuang" target="_blank" rel="noopener" data-k="s2.book9">Web3: Blockchain, the New Economy, and the Self-Sovereign Internet<small>Cambridge University Press · 2024</small></a>
+              <a class="book" href="https://www.amazon.com/author/kenhuang" target="_blank" rel="noopener" data-k="s2.book10">Blockchain and Web3: Building the Cryptocurrency, Privacy, and Security Foundations of the Metaverse<small>Wiley · 2023</small></a>
+            </div>
+            <a class="amazon-link" href="https://www.amazon.com/author/kenhuang" target="_blank" rel="noopener" data-k="s2.amazon">All books on Ken Huang's Amazon Author Page ↗</a>
+            <div class="pub-row" data-k="s2.pubs">Springer · Packt · Cambridge University Press · Wiley · DistributedApps.ai · WDTA</div>
           </div>
         </div>
       </section>
@@ -608,19 +648,29 @@
           "s1.t1":"MAESTRO","s1.t2":"行业标准",
           "s1.p1":"第一部分","s1.p1w":"广泛采用","s1.p2":"第二部分","s1.p2w":"实践证明","s1.p3":"第三部分","s1.p3w":"MAESTRO v2——最后三页",
           "s1.sub":"所有人都采用了它：<b>SANS 讲授它、工具内置它、AWS、Microsoft 与 Cisco 把它写进指南、标准草案引用它</b>——这就是为什么 MAESTRO 是智能体 AI 威胁建模的标准。",
-          "s1.by":"主讲人","s1.role":"旧金山大学兼职教授 · 云安全联盟 AI 安全工作组联合主席",
+          "s1.by":"主讲人","s1.role":"旧金山大学兼职教授 · CSA AI 安全联合主席 · DistributedApps.ai CEO",
           "s1.start":"开始演示 →","s1.src":"来源与未决问题",
           "s1.foot":"MAESTRO v2.0 于 2027 年 1 月 12 日发布——在最后三页讲解。",
-          "s2.kick":"主讲人","s2.head":"Ken Huang",
-          "s2.sub":"MAESTRO 与 MAESTRO v2.0 的作者。",
-          "s2.badge":"主讲人","s2.ph":"职务",
-          "s2.b1":"<b>兼职教授</b>，旧金山大学。",
-          "s2.b2":"<b>AI 安全工作组联合主席</b>，云安全联盟。",
-          "s2.b3":"<b>CEO</b>，Distributed Apps.AI；<b>CSA 研究员</b>。",
-          "s2.dt":"MAESTRO——作者 KEN HUANG",
-          "s2.d1":"MAESTRO v2.0 · 最终草案 4/7 · 2026 年 10 月<small>CSA / CSAI 基金会</small>",
-          "s2.d2":"作者<small>Ken Huang</small>",
-          "s2.d3":"事实标准<small>智能体 AI 威胁建模</small>",
+          "s2.kick":"讲师介绍","s2.head":"Ken Huang, CISSP",
+          "s2.sub":"讲师与 AI 安全研究员——《Harness Engineering》与 MAESTRO 的作者。",
+          "s2.name":"Ken Huang, CISSP","s2.role":"讲师 · AI 安全研究员",
+          "s2.b1":"<b>《Harness Engineering》与 MAESTRO 的作者</b>——MAESTRO 是智能体 AI 威胁建模的行业标准。",
+          "s2.b2":"<b>兼职教授</b>，旧金山大学 · <b>CSA 研究员兼联合主席</b>，云安全联盟 AI 安全工作组。",
+          "s2.b3":"<b>OWASP AIVSS 负责人</b> · AIUC-1 联盟 · Schmidt Sciences · <b>CEO，DistributedApps.ai</b>。",
+          "s2.pill1":"旧金山大学兼职教授 · AI 作者","s2.pill2":"CSA 研究员 · OWASP AIVSS 负责人","s2.pill3":"DistributedApps.ai CEO",
+          "s2.badge":"著作","s2.ph":"十本关于 AI、安全与 Web3 的书",
+          "s2.book1":"Harness Engineering<small>Packt · WDTA · 2026</small>",
+          "s2.book2":"Agentic AI: Theories and Practices<small>Springer · 2025</small>",
+          "s2.book3":"Securing AI Agents: Foundations, Frameworks, and Real-World Deployment<small>Springer · 2025</small>",
+          "s2.book4":"LLM Design Patterns<small>Packt · 2025</small>",
+          "s2.book5":"Generative AI Security: Theories and Practices<small>Springer · 2024</small>",
+          "s2.book6":"Beyond AI: ChatGPT, Web3, and the Business Landscape of Tomorrow<small>Springer · 2023</small>",
+          "s2.book7":"The Handbook for Chief AI Officers: Leading the AI Revolution in Business<small>DistributedApps.ai · 2024</small>",
+          "s2.book8":"Practical Guide for AI Engineers — Volumes 1 &amp; 2<small>DistributedApps.ai · 2024</small>",
+          "s2.book9":"Web3: Blockchain, the New Economy, and the Self-Sovereign Internet<small>Cambridge University Press · 2024</small>",
+          "s2.book10":"Blockchain and Web3: Building the Cryptocurrency, Privacy, and Security Foundations of the Metaverse<small>Wiley · 2023</small>",
+          "s2.amazon":"在 Ken Huang 的 Amazon 作者页查看全部著作 ↗",
+          "s2.pubs":"Springer · Packt · Cambridge University Press · Wiley · DistributedApps.ai · WDTA",
           "s3.kick":"为何是标准","s3.head":"采用情况即是证据",
           "s3.sub":"一个框架成为标准，是因为别人在教授它、把它内置进产品、并在生产中运行它。",
           "s3.badge":"采用","s3.ph":"调查",
